@@ -1,22 +1,27 @@
-const {
-  listContacts,
-  getContactById,
-  addContact,
-  removeContact,
-} = require("./db/contacts");
+const argv = require("yargs").argv;
 
-async function main() {
-  console.log("Lista kontaktów:");
-  console.table(await listContacts());
+// TODO: refaktor
+function invokeAction({ action, id, name, email, phone }) {
+  switch (action) {
+    case "list":
+      // ...
+      break;
 
-  console.log("Dodaj kontakt:");
-  console.log(await addContact("Mango", "mango@gmail.com", "322-22-22"));
+    case "get":
+      // ... id
+      break;
 
-  console.log("Pobierz kontakt po ID:");
-  console.log(await getContactById("1"));
+    case "add":
+      // ... name email phone
+      break;
 
-  console.log("Usuń kontakt po ID:");
-  console.table(await removeContact("1"));
+    case "remove":
+      // ... id
+      break;
+
+    default:
+      console.warn("\x1B[31m Unknown action type!");
+  }
 }
 
-main();
+invokeAction(argv);
