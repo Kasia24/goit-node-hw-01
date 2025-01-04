@@ -18,4 +18,4 @@ Praca domowa - GoIT
 
 ## Repozytorium
 
-Repozytorium z pracą domową: [Link do repozytorium](https://github.com/twoje-repozytorium)
+Repozytorium z pracą domową: [Link do repozytorium](https://github.com/Kasia24/goit-node-hw-01)
