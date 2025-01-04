@@ -1,35 +1,14 @@
 const {
   listContacts,
   getContactById,
-  addContact,
   removeContact,
-} = require("./actions/contacts");
+  addContact,
+} = require("./contacts");
 
-async function invokeAction({ action, id, name, email, phone }) {
-  try {
-    switch (action) {
-      case "list":
-        console.table(await listContacts());
-        break;
-
-      case "get":
-        console.log(await getContactById(id));
-        break;
-
-      case "add":
-        console.log(await addContact(name, email, phone));
-        break;
-
-      case "remove":
-        console.table(await removeContact(id));
-        break;
-
-      default:
-        console.warn("❌ Nieznana akcja!");
-    }
-  } catch (error) {
-    console.error("❌ Wystąpił błąd:", error.message);
-  }
-}
-
-module.exports = { invokeAction };
+// Testowanie funkcji
+(async () => {
+  console.log(await listContacts()); // Wyświetla listę kontaktów
+  console.log(await getContactById("1")); // Pobiera kontakt o ID "1"
+  console.log(await addContact("Mango", "mango@gmail.com", "322-22-22")); // Dodaje nowy kontakt
+  console.log(await removeContact("1")); // Usuwa kontakt o ID "1"
+})();
