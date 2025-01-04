@@ -1,37 +1,53 @@
-const yargs = require("yargs");
+const { Command } = require("commander");
+const program = new Command();
 
 // Konfiguracja opcji wiersza poleceń
-const argv = yargs
-  .usage(
-    "Użycie: $0 --action [typ] --id [id] --name [nazwa] --email [email] --phone [telefon]"
-  )
-  .option("action", {
-    alias: "a",
-    type: "string",
-    demandOption: true,
-    describe: "Akcja do wykonania (list, get, add, remove)",
-  })
-  .option("id", {
-    alias: "i",
-    type: "string",
-    describe: "ID kontaktu (wymagane dla akcji get lub remove)",
-  })
-  .option("name", {
-    alias: "n",
-    type: "string",
-    describe: "Imię kontaktu (wymagane dla akcji add)",
-  })
-  .option("email", {
-    alias: "e",
-    type: "string",
-    describe: "Email kontaktu (wymagane dla akcji add)",
-  })
-  .option("phone", {
-    alias: "p",
-    type: "string",
-    describe: "Numer telefonu kontaktu (wymagane dla akcji add)",
-  })
-  .help("h")
-  .alias("h", "help").argv;
+program
+  .name("konsola-kontakty")
+  .description("Aplikacja konsolowa do zarządzania kontaktami")
+  .version("1.0.0");
 
-module.exports = argv;
+// Akcja "list"
+program
+  .command("list")
+  .description("Wyświetl listę kontaktów")
+  .action(() => {
+    require("./app").invokeAction({ action: "list" });
+  });
+
+// Akcja "get"
+program
+  .command("get")
+  .description("Pobierz kontakt po ID")
+  .requiredOption("-i, --id <id>", "ID kontaktu")
+  .action((options) => {
+    require("./app").invokeAction({ action: "get", id: options.id });
+  });
+
+// Akcja "add"
+program
+  .command("add")
+  .description("Dodaj nowy kontakt")
+  .requiredOption("-n, --name <name>", "Imię kontaktu")
+  .requiredOption("-e, --email <email>", "Email kontaktu")
+  .requiredOption("-p, --phone <phone>", "Telefon kontaktu")
+  .action((options) => {
+    require("./app").invokeAction({
+      action: "add",
+      name: options.name,
+      email: options.email,
+      phone: options.phone,
+    });
+  });
+
+// Akcja "remove"
+program
+  .command("remove")
+  .description("Usuń kontakt po ID")
+  .requiredOption("-i, --id <id>", "ID kontaktu")
+  .action((options) => {
+    require("./app").invokeAction({ action: "remove", id: options.id });
+  });
+
+// Parsowanie argumentów
+program.parse(process.argv);
