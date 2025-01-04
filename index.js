@@ -3,7 +3,7 @@ const {
   getContactById,
   addContact,
   removeContact,
-} = require("./contacts");
+} = require("./db/contacts");
 
 async function main() {
   console.log("Lista kontaktów:");
