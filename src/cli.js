@@ -12,7 +12,7 @@ program
   .command("list")
   .description("Wyświetl listę kontaktów")
   .action(() => {
-    require("./app").invokeAction({ action: "list" });
+    require(".").invokeAction({ action: "list" });
   });
 
 // Akcja "get"
@@ -21,7 +21,7 @@ program
   .description("Pobierz kontakt po ID")
   .requiredOption("-i, --id <id>", "ID kontaktu")
   .action((options) => {
-    require("./app").invokeAction({ action: "get", id: options.id });
+    require(".").invokeAction({ action: "get", id: options.id });
   });
 
 // Akcja "add"
@@ -32,7 +32,7 @@ program
   .requiredOption("-e, --email <email>", "Email kontaktu")
   .requiredOption("-p, --phone <phone>", "Telefon kontaktu")
   .action((options) => {
-    require("./app").invokeAction({
+    require(".").invokeAction({
       action: "add",
       name: options.name,
       email: options.email,
@@ -46,7 +46,7 @@ program
   .description("Usuń kontakt po ID")
   .requiredOption("-i, --id <id>", "ID kontaktu")
   .action((options) => {
-    require("./app").invokeAction({ action: "remove", id: options.id });
+    require(".").invokeAction({ action: "remove", id: options.id });
   });
 
 // Parsowanie argumentów
