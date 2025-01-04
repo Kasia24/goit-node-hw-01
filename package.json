@@ -4,11 +4,11 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "scripts": {
       "start": "node index.js",
       "start:dev": "nodemon index.js"
     }
   },
+  {
   "keywords": [],
   "author": "",
   "license": "ISC",
