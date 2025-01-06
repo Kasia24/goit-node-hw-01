@@ -11,7 +11,7 @@ Praca domowa - GoIT
    [Screenshot 2](https://monosnap.com/file/oPhEdFAIfo0FykLBnyBu4dNKRvJ0CG)
 
 3. **Zrzut ekranu 3**
-   [Screenshot 3](https://monosnap.com/file/6Noverpbg1EdkAxGdQGcpeotAq7SlI)
+   [Screenshot 3](https://monosnap.com/file/zzKNV1GOzBBmw76OqNa8MURX6Q4HgT)
 
 4. **Zrzut ekranu 2**
    [Screenshot 4](https://monosnap.com/file/HppckrNdMLma3EaBeVKB8779poQ0sY)
